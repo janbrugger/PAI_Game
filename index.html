@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+    <meta charset="UTF-8">
+    <title> Juego PAI </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container col-12">
+    <div class="col-1 full-height score">
+        <p>Puntaje:</p> 
+        <p><span id="Score"></span></p>
+    </div>
+
+    <div class="col-10 music-div"> <!-- MUSICA -->
+        <div class="col-6 full-height espacio"> <p> </p> </div>
+        <div class="col-3 juegaconmusica"> <p>Juega con musica ---></p> </div>
+        <div class="col-3 div-audio"> <audio src="Kero Kero Bonito - Flamingo (Azureflux Remix).mp3" controls autoplay loop></audio></div>
+    </div>
+    
+    <div class="col-10" id="titulo-principal"> 
+        <h1>Presiona la barra espaciadora para saltar</h1>
+        <div id="div-titulo-guia" class="col-12"> 
+            <h1  class="">Selecciona un jugadxr</h1></div>
+    </div>
+
+    <div id="game" class="col-10 game"> <!-- GAME -->
+   
+        <div id="selectplayer" class="select-player col-12">  <!-- Selecciona tu jugador --> 
+            <div onclick="SelectPlayer1()" id="layout-jugador01" class="col-6"> <h1 class="titulo-player">Marcos</h1> </div>
+            <div onclick="SelectPlayer2()" id="layout-jugador02" class="col-6"> <h1 class="titulo-player">Jessica</h1> </div>
+        </div> 
+    
+        <div id="macaco" class="skin-player1"></div>
+        <div id="obstaculo"></div> 
+        <div id="suelo" class="suelo"></div>
+        <div id="cafe"></div>
+    </div>
+
+    <div class="col-12"> </div>
+    <div class="col-1 full-height">
+    <a class="mas-dificil" href="dificil.html"> <button>Muy facil?</button> </a></div>
+    <div class="nube1"></div>
+    <div class="nube2"></div>
+    <div class="nube3"></div>
+    <div class="nube4"></div>
+
+
+</div> <!--Container end -->
+    
+</body>
+<script>
+var macaco = document.getElementById("macaco");
+var block = document.getElementById("obstaculo");
+var counter=0;
+function jump(){
+    if(macaco.classList == "saltar"){return}
+    macaco.classList.add("saltar");
+    setTimeout(function(){
+        macaco.classList.remove("saltar");
+    },500);
+}
+var checkDead = setInterval(function() {
+    let macacoTop = parseInt(window.getComputedStyle(macaco).getPropertyValue("top"));
+    let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+    if(blockLeft<90 && blockLeft>10 && macacoTop>=120){
+        block.classList.toggle("obstaculo-play");
+        alert("Game Over - Empezar denuevo?");
+        reload()
+        counter=0;
+    }else{
+        if(blockLeft<80 && blockLeft>10) {
+            counter++;
+            document.getElementById("Score").innerHTML = Math.floor(counter/10);
+        }
+    }
+}, 10);
+
+function reload(){
+    setTimeout(function(){
+    block.classList.add("obstaculo-play");
+    },2000);
+}
+    
+        // Seleccion de jugador
+
+function SelectPlayer1() {
+    document.getElementById("selectplayer").className += " oculto02";
+    document.getElementById("div-titulo-guia").style.display = "none";
+
+    macaco.classList.add("skin-player1");
+    macaco.classList.add("corriendo-marcos");
+
+    reload()
+
+    document.getElementById("game").style.WebkitAnimationPlayState = "running";
+    document.getElementById("game").style.AnimationPlayState = "running";
+
+    document.getElementById("suelo").style.WebkitAnimationPlayState = "running";
+    document.getElementById("suelo").style.AnimationPlayState = "running"
+}
+
+function SelectPlayer2() {
+    document.getElementById("selectplayer").className += " oculto02";
+    document.getElementById("div-titulo-guia").style.display = "none";
+    
+    macaco.classList.add("skin-player2");
+    macaco.classList.add("corriendo-jessica");
+
+    reload()
+
+    document.getElementById("game").style.WebkitAnimationPlayState = "running";
+    document.getElementById("game").style.AnimationPlayState = "running";
+
+    document.getElementById("suelo").style.WebkitAnimationPlayState = "running";
+    document.getElementById("suelo").style.AnimationPlayState = "running"
+}
+
+// Salto
+document.body.onkeypress = function(e) {
+  if (e.key == " " ||
+      e.code == "Space" ||      
+      e.keyCode == 49      
+  ) {
+    jump()
+  }
+}
+</script>
+</html>

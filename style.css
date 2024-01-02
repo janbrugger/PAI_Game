@@ -1,0 +1,519 @@
+@font-face {
+   font-family: Minecraft;
+   src: url(Minecraft.ttf);
+}
+/* ---------- estilo de columnas--------------------- */
+*{box-sizing: border-box;}
+.row::after {content: ""; clear: both; display: table;}
+[class*="col-"] {float: left;}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;} 
+
+
+/*Estilos generales (body, container,)*/
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Minecraft;
+    letter-spacing: 2.5pt;
+}
+
+body, html {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: #A1EBFF;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+}
+
+.full-height {
+    height: 70vh;
+}
+
+.oculto02 {
+    display: none;
+}
+
+/*- - - MUSICA - - - */
+audio {
+    height: 3vh;
+    width: 90%;
+    margin-top: 1vh;
+}
+
+.div-audio {
+}
+
+.juegaconmusica {
+    display: flex;
+    justify-content: center;
+    padding-top: 2vh;
+}
+
+.music-div {
+    height: 10vh;
+    position: absolute;
+
+}
+
+.espacio {
+    height: 20vh;
+}
+
+/* - - - PARTE SUPERIOR - - -*/
+#titulo-principal, #div-titulo-guia{
+    height: 90px;
+}
+
+#titulo-principal {
+    position: absolute ;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 5vh;
+    z-index: 1;
+    background-color: #45C3FC;
+}
+
+#div-titulo-guia {
+    position: absolute;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #45C3FC;
+}
+
+.score {
+    font-size: 1.2em;
+    text-align: center;
+    padding-top: 10em;
+    margin: 0.2em;
+}
+
+/*_ _ _PARTE INFERIOR  _ _ _*/
+                  /* - - - SELECT PLAYER - - */
+.select-player, .game {
+    height: 300px;
+    border-radius: 25px;
+    position: absolute;
+    }
+
+.select-player {
+        background-color: #F8AD9D;
+        border-radius: 25px;
+        z-index: 4;
+}
+
+#layout-jugador01, #layout-jugador02 {
+    width: 50%;
+    height: 100%;
+    z-index: 20;
+    position: absolute;
+    margin: 0;
+    font-size: 0.9em;
+}
+
+#layout-jugador01 {
+    background-image: url("img/M0.png");
+    background-size: 22%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+#layout-jugador01:hover {
+    -webkit-animation: linear corriendoM 0.5s infinite;
+    -moz-animation:    linear corriendoM 0.5s infinite;
+    -o-animation:      linear corriendoM 0.5s infinite;
+    -ms-animation:     linear corriendoM 0.5s infinite;
+    animation:         linear corriendoM 0.5s infinite;
+}
+
+#layout-jugador02 {
+    background-image: url("img/J0.png");
+    background-size: 25%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    transform: translateX(100%);
+}
+
+#layout-jugador02:hover {
+    -webkit-animation: linear corriendoJ 0.5s infinite;
+    -moz-animation:    linear corriendoJ 0.5s infinite;
+    -o-animation:      linear corriendoJ 0.5s infinite;
+    -ms-animation:     linear corriendoJ 0.5s infinite;
+    animation:         linear corriendoJ 0.5s infinite;
+}
+
+.titulo-player {
+    text-align: center;
+    padding: 0.8em;
+}
+
+/* - - GAME - - -*/
+#game {
+    background-image: url(img/backround-game2.png);
+    background-position: left;
+    background-size: cover;
+    margin-top: 25vh;
+    position: absolute;
+    overflow: hidden;
+    -webkit-animation: fondo-game 150s linear infinite;
+    -moz-animation:    fondo-game 150s linear infinite;
+    -o-animation:      fondo-game 150s linear infinite;
+    -ms-animation:     fondo-game 150s linear infinite;
+    animation:         fondo-game 150s linear infinite;
+    animation-play-state: paused;
+}
+
+.suelo {
+    width: 200%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    background: url(img/suelo.png) repeat-x 0px 0px ;
+    background-size: 50% 100%;
+    -webkit-animation: suelo 2s linear infinite;
+    -moz-animation:    suelo 2s linear infinite;
+    -o-animation:      suelo 2s linear infinite;
+    -ms-animation:     suelo 2s linear infinite;
+    animation:         suelo 2s linear infinite;
+    animation-play-state: paused;
+    z-index: 2;
+}
+
+ 
+/*- - - MACACO - - -*/
+#macaco{
+    height: 120px;
+    width: 80px;
+    position:relative;
+    top: 170px;
+    z-index: 3;
+    left: 20px;
+}
+
+.skin-player1 {
+    background-image: url("img/M0.png");
+    background-size: 95%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.skin-player2 {
+    background-image: url("img/J0.png");
+    background-size: 99%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*- - - CORRER Y SALTAR - - -*/
+.corriendo-marcos {
+    -webkit-animation: linear corriendoM 0.35s infinite;
+    -moz-animation:    linear corriendoM 0.35s infinite;
+    -o-animation:      linear corriendoM 0.35s infinite;
+    -ms-animation:     linear corriendoM 0.35s infinite;
+    animation:         linear corriendoM 0.35s infinite;
+}
+
+.corriendo-jessica {
+    -webkit-animation: linear corriendoJ 0.35s infinite;
+    -moz-animation:    linear corriendoJ 0.35s infinite;
+    -o-animation:      linear corriendoJ 0.35s infinite;
+    -ms-animation:     linear corriendoJ 0.35s infinite;
+    animation:         linear corriendoJ 0.35s infinite;
+}
+
+.saltar {
+    -webkit-animation: jump 0.5s linear;
+    -moz-animation:    jump 0.5s linear;
+    -o-animation:      jump 0.5s linear;
+    -ms-animation:     jump 0.5s linear;
+    animation:         jump 0.5s linear;
+}
+
+.saltarDificil {
+    -webkit-animation: jump 0.4s linear;
+    -moz-animation:    jump 0.4s linear;
+    -o-animation:      jump 0.4s linear;
+    -ms-animation:     jump 0.4s linear;
+    animation:         jump 0.4s linear;
+}
+
+.saltarExtremo {
+    -webkit-animation: jump 0.3s linear;
+    -moz-animation:    jump 0.3s linear;
+    -o-animation:      jump 0.3s linear;
+    -ms-animation:     jump 0.3s linear;
+    animation:         jump 0.3s linear;
+}
+
+/*- - - Obstaculos - - -*/
+#obstaculo{
+    background-image: url("img/banquito.png");
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position: top;
+    height: 80px;
+    width: 50px;
+    position: relative;
+    top: 110px;
+    left: 100%;
+    z-index: 3;
+}
+
+.obstaculo-play {
+    display: block;
+    -webkit-animation: obstaculo 2s infinite linear;
+    -moz-animation:    obstaculo 2s infinite linear;
+    -o-animation:      obstaculo 2s infinite linear;
+    -ms-animation:     obstaculo 2s infinite linear;
+    animation:         obstaculo 2s infinite linear;
+}
+
+.obstaculo-play2 {
+    -webkit-animation: obstaculo 0.8s infinite linear;
+    -moz-animation:    obstaculo 0.8s infinite linear;
+    -o-animation:      obstaculo 0.8s infinite linear;
+    -ms-animation:     obstaculo 0.8s infinite linear;
+    animation:         obstaculo 0.8s infinite linear;
+}
+
+.obstaculo-play3 {
+    -webkit-animation: obstaculo 0.5s infinite linear;
+    -moz-animation:    obstaculo 0.5s infinite linear;
+    -o-animation:      obstaculo 0.5s infinite linear;
+    -ms-animation:     obstaculo 0.5s infinite linear;
+    animation:         obstaculo 0.5s infinite linear;
+}
+
+[class*="nube"] {
+    background-size: cover;
+    height: 60px;
+    width: 110px;
+    position: absolute;
+    left: 100%; 
+    top: 20%;
+    z-index: 1;
+}
+
+.nube1 {
+    background-image: url("img/nube1.png");
+    -webkit-animation: nube-volando 8s linear infinite;
+    -moz-animation:    nube-volando 8s linear infinite;
+    -o-animation:      nube-volando 8s linear infinite;
+    -ms-animation:     nube-volando 8s linear infinite;
+    animation:         nube-volando 8s linear infinite;
+}
+
+.nube2 {
+    background-image: url("img/nube2.png");
+    -webkit-animation: nube-volando2 8s linear 2s infinite;
+    -moz-animation:    nube-volando2 8s linear 2s infinite;
+    -o-animation:      nube-volando2 8s linear 2s infinite;
+    -ms-animation:     nube-volando2 8s linear 2s infinite;
+    animation:         nube-volando2 8s linear 2s infinite;
+}
+
+.nube3 {
+    background-image: url("img/nube3.png");
+    -webkit-animation: nube-volando 8s linear 5s infinite;
+    -moz-animation:    nube-volando 8s linear 5s infinite;
+    -o-animation:      nube-volando 8s linear 5s infinite;
+    -ms-animation:     nube-volando 8s linear 5s infinite;
+    animation:         nube-volando 8s linear 5s infinite;
+}
+
+.nube4 {
+    background-image: url("img/nube4.png");
+    -webkit-animation: nube-volando2 8s linear 7s infinite;
+    -moz-animation:    nube-volando2 8s linear 7s infinite;
+    -o-animation:      nube-volando2 8s linear 7s infinite;
+    -ms-animation:     nube-volando2 8s linear 7s infinite;
+    animation:         nube-volando2 8s linear 7s infinite;
+}
+
+#cafe {
+    background-image: url("img/cafeceda.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 150px;
+    width: 130px;
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+    z-index: 3;
+    -webkit-animation: cafe 1s linear infinite;
+    -moz-animation:    cafe 1s linear infinite;
+    -o-animation:      cafe 1s linear infinite;
+    -ms-animation:     cafe 1s linear infinite;
+    animation:         cafe 1s linear infinite;
+}
+
+.mas-dificil {
+    height: 8em;
+    font-size: 0.5em;
+
+}
+button {
+    height: 8em;
+    width: 80%;
+    margin-top: 20em;
+    letter-spacing: 0.9pt;
+
+    background-color: #45C3FC;
+    border-radius: 15%;
+    border: 1px #45C3FC;
+}
+
+/*- - - KEYFRAMES - - - */
+@keyframes fondo-game {
+    0% { background-position: 0 0;}
+    100% {background-position: 100% 0}
+}
+
+@keyframes suelo {
+    0% { background-position: 0 0;}
+    100% {background-position: -100% 0}
+}
+
+@keyframes nube-volando {
+    0%{left: 100%; top: 12%}
+    100%{left: -10%; top: 20%}
+}
+
+@keyframes nube-volando2 {
+    0%{left: 100%; top: 30%}
+    100%{left: -10%; top: 35%}
+}
+
+@keyframes jump{
+    0%{top: 170px;}
+    30%{top: 70px;}
+    50%{top: 50px;}
+    70%{top: 80px;}
+    100%{top: 170px;}
+}
+
+@keyframes obstaculo{
+    0%{left: 100%}
+    100%{left: -20px}
+}
+
+@keyframes cafe{
+    0%{transform: rotate(-20deg);}
+    50%{transform: rotate(20deg);}
+    100%{transform: rotate(-20deg);}
+}
+
+@keyframes corriendoM {
+    0% {background-image: url("img/M0.png")}
+    33% {background-image: url("img/M1.png")}
+    66% {background-image: url("img/M2.png")}
+    75% {background-image: url("img/M3.png")}
+}
+
+@keyframes corriendoJ {
+    0% {background-image: url("img/J0.png")}
+    33% {background-image: url("img/J1.png")}
+    66% {background-image: url("img/J2.png")}
+    75% {background-image: url("img/J3.png")}
+}
+
+/*- - - PHONE RESPONSIVE - - -*/
+@media screen and (max-width: 768px ) {
+
+.col-1-s {width: 8.33%;}
+.col-2-s {width: 16.66%;}
+.col-3-s {width: 25%;}
+.col-4-s {width: 33.33%;}
+.col-5-s {width: 41.66%;}
+.col-6-s {width: 50%;}
+.col-7-s {width: 58.33%;}
+.col-8-s {width: 66.66%;}
+.col-9-s {width: 75%;}
+.col-10-s {width: 83.33%;}
+.col-11-s {width: 91.66%;}
+.col-12-s {width: 100%;} 
+
+*{
+    letter-spacing: 1.5pt;
+}
+
+#titulo-principal h1 {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#layout-jugador01 {
+     background-size: 50%;
+     background-position: center;
+}
+
+#layout-jugador02 {
+    background-size: 55%;
+    background-position: center;
+}
+
+.espacio {
+    display: none;
+}
+
+.juegaconmusica {
+    width: 40%;
+    font-size: 0.7em;
+}
+
+.div-audio {
+    width: 50%;
+}
+
+audio {
+    width: 15em;
+}
+
+.score {
+    font-size: 0.6em;
+    letter-spacing: 0.3pt;
+}
+
+.obstaculo-play {
+animation: obstaculo 1s infinite linear;
+}
+
+.obstaculo-play2 {
+animation: obstaculo 0.7s infinite linear;
+}
+
+button {
+    width: 90%;
+    margin-top: 30em;
+    font-size: 1.2em;
+    letter-spacing: 0.8pt;
+}
+}
+
+
+
+
+
+
